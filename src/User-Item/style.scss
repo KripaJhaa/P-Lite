@@ -1,14 +1,27 @@
-.box{
+.box {
     display: flex;
-    justify-content: space-between;
-    height: 100px;
+    // justify-content: space-between;
+    // height: 100px;
+    align-items: center;
     border: 0.5px solid black;
-    .left-side{
-        background-color: aqua;
-        width: 20%;
+    padding: 1rem;
+    color: rgb(135, 67, 251);
+
+    // color: aliceblue;
+    .left-side {
+        // background-color: aqua;
+        // width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
-    .right-side{
-        background-color: rgb(227, 177, 28);
-        width: 80%;
+
+    .right-side {
+        // width: 80%;
+        flex: 1;
+    }
+
+    .row {
+        display: flex;
     }
 }

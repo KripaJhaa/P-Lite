@@ -1,12 +1,42 @@
-.History{
-    .User-List{
-        .added-user-list{
-            overflow-y: scroll;
+.History {
+    display: flex;
+    padding: 4rem 2rem;
+    padding-bottom: 4rem;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+
+
+    .AddBenificiaryForm {
+
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+
+        &>div {
+            min-width: 300px;
+            width: 100%;
+            max-width: 400px;
+        }
+    }
+
+    .User-List {
+        flex: 1;
+        position: relative;
+        height: 400px;
+        overflow: auto;
+        border: 1px solid black;
+        border-radius: 4px;
+
+        table {
             height: 400px;
-            border: 1px solid blue;
-         }
-        .price{
-            list-style-type:none;
+        }
+
+        thead {
+            position: sticky;
+            background-color: rgb(231, 223, 239);
+            top: 0;
         }
     }
 }
