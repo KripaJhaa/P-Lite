@@ -10,8 +10,8 @@ function App() {
     <Router>
         <Routes>
           <Route exact path="/" element={<Dashboard/>}/>
-          <Route exact path="/child" element={<Child/>}/>
-          <Route exact path="/parent" element={<Parent/>}/>
+          <Route exact path="/child" element={<Child dependentChild/>}/>
+          <Route exact path="/parent" element={<Child/>}/>
         </Routes>
     </Router>
   );

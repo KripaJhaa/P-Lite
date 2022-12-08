@@ -7,7 +7,7 @@ export default class QRCodePayemnt extends Component {
     render() {
         return (
             <div style={{ "display": "flex", "flex-direction": "column" }}>
-                <h2 style={{ "text-align": "center" }}>QR Code Scan</h2>
+                <h2 style={{ "text-align": "center" , "padding": "10px"}}>QR Code Scan</h2>
                 <img src="https://cdn-icons-png.flaticon.com/512/628/628651.png?w=1480&t=st=1670534472~exp=1670535072~hmac=b6890398f07d77c5ac7e36975e9163ad836f480d98ee861b96db1519a9a3ee28" style={{ "width": "300px", "padding": "20px" }} alt="Avatar" />
                 <Form style={{"text-align": "center"}}>
                     <Form.Group className="mb-3">
