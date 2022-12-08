@@ -1,0 +1,27 @@
+.profile_snapshot{
+    display: flex;
+    justify-content: center;
+}
+
+.transaction_details{
+    display: flex;
+    justify-content: space-around;
+}
+
+.rounded-circle{
+    width: 75px;
+}
+
+.child_details{
+    display: flex;
+}
+
+.child_details_container{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+.center {
+    text-align: "center" !important
+}
