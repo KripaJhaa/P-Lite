@@ -37,7 +37,7 @@ export function BeneficiaryDetail() {
         <div className='History'>
             <div className='AddBenificiaryForm'>
                 <div>
-                    <div>Add Beneficiary</div>
+                    <div className='label'>Add Beneficiary</div>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="mb-3">
                             <input className="form-control" placeholder='Phone number' {...register("phone_number")} />

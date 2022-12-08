@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import ChildDetails from './ChildDetails'
 import RecentTx from './RecentTx'
-import QRCodePayemnt from './QRCodePayment'
+import {QRCodePayemnt} from './QRCodePayment'
 import SpendAnalysis from './SpendAnalysis'
 import './Child.scss';
 export default class Child extends Component {
