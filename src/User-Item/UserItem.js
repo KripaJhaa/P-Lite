@@ -3,7 +3,7 @@ import { PersonFill } from 'react-bootstrap-icons';
 import './style.scss'
 
 export default function UserItem({UserItem}) {
-    const {name} = UserItem;
+    const {phone_number,max_limit,description,is_active,verification_status,regular_limit,qr_code} = UserItem;
   return (
     <div className='box'>
         <div className='left-side'>
@@ -18,22 +18,27 @@ export default function UserItem({UserItem}) {
                 <div class="row g-2">
                 <div class="col-3">
                     <div className='Name'>
-                        <div className='name'>{name}</div>
+                        <div className='name'>{phone_number}</div>
                     </div>
                 </div>
                 <div class="col-3">
                     <div className='Txn-Limit'>
-                        <div className='name'>{1200}</div>
+                        <div className='name'>{regular_limit}</div>
                     </div>
                 </div>
 
                 <div class="col-3">
                     <div className='Per-Txn-Limit'>
-                        <div className='name'>{200}</div>
+                        <div className='name'>{max_limit}</div>
                     </div>
                 </div>
                 <div class="form-check form-switch form-check-reverse active-switch">
-                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckReverse"/>
+                    {is_active &&
+                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked/>
+                    }
+                    {!is_active &&
+                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault"/>
+                    }
                 </div>
 
                 </div>

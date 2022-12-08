@@ -1,8 +1,10 @@
 .History{
     .User-List{
-        overflow-y: scroll;
-        height: 400px;
-        border: 1px solid blue;
+        .added-user-list{
+            overflow-y: scroll;
+            height: 400px;
+            border: 1px solid blue;
+         }
         .price{
             list-style-type:none;
         }
