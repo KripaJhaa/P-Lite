@@ -1,0 +1,14 @@
+.box{
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    border: 0.5px solid black;
+    .left-side{
+        background-color: aqua;
+        width: 20%;
+    }
+    .right-side{
+        background-color: rgb(227, 177, 28);
+        width: 80%;
+    }
+}

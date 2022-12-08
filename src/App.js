@@ -1,8 +1,8 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-
-import logo from './logo.svg';
 import './App.css';
+import Dashboard from './Dashboard/Dashboard';
+import Login from './Login/Login';
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
         <Routes>
           <Route exact path="/about" element={<About/>}/>
           <Route exact path="/users" element={<Users/>}/>
-          <Route exact path="/" element={<Home/>}/>
+          <Route exact path="/" element={<Dashboard/>}/>
         </Routes>
     </Router>
   );

@@ -1,0 +1,18 @@
+.Scrappy-ui{
+    text-align: center;
+    background-color: rgb(231, 223, 239);
+    .Expense-chart{
+        width: 300px;
+        border-right: 0.5px solid black;
+    }
+    .Summary{
+        display: flex;
+
+        .Expense-chart{
+            width: 30%;
+        }
+        .Transaction-History{
+            width:70%;
+        }
+    }
+}
