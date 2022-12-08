@@ -31,9 +31,30 @@ export function BeneficiaryDetail() {
                 </div>
                 <button type="submit">Add Beneficiary</button>
             </form>
-            {console.log(names)}
+
             <div className="User-List">
-                { names && <h1>Name</h1>
+                { names && <div class="row g-2">
+                    <div class="col-3">
+                        <div className='Name'>
+                            <label>Name</label>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div className='Txn-Limit'>
+                            <label>Txn-limit</label>
+                        </div>
+                    </div>
+
+                    <div class="col-3">
+                        <div className='Per-Txn-Limit'>
+                            <label>Per-Txn-limit</label>
+                        </div>
+                    </div>
+                    <div class="form-check form-switch form-check-reverse active-switch">
+                        <label class="form-check-label" for="flexSwitchCheckReverse">Active</label>
+                    </div>
+
+                </div>
                 }
 
                 {
