@@ -11,8 +11,8 @@ export default class Child extends Component {
                 userName: "Hunter biden",
             approver: "Joe Biden",
             createdAt: "10-12-2022",
-            perTxLimit: "100",
-            monthlyTxLimit: "2000"
+            perTxLimit: "100 ₹",
+            monthlyTxLimit: "2000 ₹"
             },
             "recentTransactions": [
                 {"date": "22-10-2022", "to": "Mr Elon Musk", "amount": "200 ₹", "tag": "Misc"},
@@ -27,8 +27,8 @@ export default class Child extends Component {
             userName: "Senior biden",
             approver: "Joe Biden",
             createdAt: "08-08-2022",
-            perTxLimit: "900",
-            monthlyTxLimit: "12000"
+            perTxLimit: "900 ₹",
+            monthlyTxLimit: "12000 ₹"
             },
             "recentTransactions": [
                 {"date": "22-10-2022", "to": "Mr Mark Zuckerburg", "amount": "500 ₹", "tag": "movies"},
