@@ -13,43 +13,43 @@ export default function UserItem({ UserItem }) {
             </div>
             <div className='right-side'>
 
-                <div class="container Name-details text-center">
+                <div className="container Name-details text-center">
 
-                    <div class="row">
-                        <div class="col-2">
+                    <div className="row">
+                        <div className="col-2">
                             <div className='Phone_no'>
                                 <div className='PhoneNo'>{phone_number}</div>
                             </div>
                         </div>
-                        <div class="col-2">
+                        <div className="col-2">
                             <div className='Regular-Limit'>
                                 <div className='limit'>{regular_limit}</div>
                             </div>
                         </div>
 
-                        <div class="col-2">
+                        <div className="col-2">
                             <div className='Max-Limit'>
                                 <div className='limt'>{max_limit}</div>
                             </div>
                         </div>
-                        <div class="col-2">
+                        <div className="col-2">
                             <div className='Description'>
                                 <div className='description'>{description}</div>
                             </div>
                         </div>
 
-                        <div class="col-2">
+                        <div className="col-2">
                             <div className='verification_status'>
                                 <div className='verification_status'>{verification_status}</div>
                             </div>
                         </div>
                         <div>
-                            <div class="form-check form-switch form-check-reverse active-switch">
+                            <div className="form-check form-switch form-check-reverse active-switch">
                                 {is_active &&
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked />
+                                    <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked />
                                 }
                                 {!is_active &&
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" />
+                                    <input className="form-check-input" type="checkbox" id="flexSwitchCheckDefault" />
                                 }
                             </div>
                         </div>
