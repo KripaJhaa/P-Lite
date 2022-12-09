@@ -20,9 +20,19 @@ export function QRCodePayemnt(props) {
         }
 
         axios.post(baseUrl, body).then((response) => {
-            console.log(response.data);
-            
             toast.success(`Succesfully paid the amount ${amount}`, {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                });
+        }).catch((error)=>{
+            console.log(error);
+            toast.warning(`Failed to paid the amount ${amount}`, {
                 position: "top-center",
                 autoClose: 5000,
                 hideProgressBar: false,
