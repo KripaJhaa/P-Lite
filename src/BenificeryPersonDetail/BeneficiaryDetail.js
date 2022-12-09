@@ -81,14 +81,14 @@ export function BeneficiaryDetail() {
                                     names.map((item, index) => {
                                         return <tr>
                                             <th scope="row">
-                                                <DisplayQRCode shouldDisplayQR setStatus={setStatus} phone_number={item.phone_number}/>
+                                                <DisplayQRCode shouldDisplayQR setStatus={item} phone_number={item.phone_number}/>
                                             <div className='image_cicle'>
                                             </div></th>
                                             <td>{item.phone_number}</td>
                                             <td>{item.regular_limit}</td>
                                             <td>{item.max_limit}</td>
                                             <td>{item.description}</td>
-                                            <td>{status}</td>
+                                            <td>{item.status}</td>
                                             <td><div style={{ marginRight: '1rem' }}>
                                                 <div className="form-check form-switch form-check-reverse active-switch">
                                                     {item.is_active &&
