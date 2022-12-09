@@ -1,18 +1,38 @@
-import React ,{ useState }from 'react';
+import React ,{ useState, useEffect, useRef }from 'react';
 import './style.scss';
 import axios from "axios";
+
+export const useInterval = (callback, delay) => {
+
+    const savedCallback = useRef();
+  
+    useEffect(() => {
+      savedCallback.current = callback;
+    }, [callback]);
+  
+  
+    useEffect(() => {
+      function tick() {
+        savedCallback.current();
+      }
+      if (delay !== null) {
+        const id = setInterval(tick, delay);
+        return () => clearInterval(id);
+      }
+    }, [delay]);
+  }
 
 export default function History() {
 
   const baseURL = "http://10.57.15.202:9001/transaction?user_id=9206255529";
   const [res, setRes] = useState([]); 
 
-  React.useEffect(() => {
-    axios.get(baseURL).then((response)=>{
-        setRes([...response.data.data])
-        console.log(response.data.data);
-    })
-  }, []);
+useInterval(() => {
+    axios.get(baseURL).then(response => {
+            setRes([...response.data.data])
+            console.log('History data',response.data.data);
+        })
+  }, 1000 * 10);
 
   return (
     <div className="History-list">
