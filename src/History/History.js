@@ -1,45 +1,25 @@
-import React ,{ useState, useEffect, useRef }from 'react';
+import React ,{ useState }from 'react';
 import './style.scss';
 import axios from "axios";
 
-export const useInterval = (callback, delay) => {
-
-    const savedCallback = useRef();
-  
-    useEffect(() => {
-      savedCallback.current = callback;
-    }, [callback]);
-  
-  
-    useEffect(() => {
-      function tick() {
-        savedCallback.current();
-      }
-      if (delay !== null) {
-        const id = setInterval(tick, delay);
-        return () => clearInterval(id);
-      }
-    }, [delay]);
-  }
-
 export default function History() {
 
-  const baseURL = "http://10.57.15.202:9001/transaction?user_id=9206255529";
+  const baseURL = "http://10.57.15.202:9001/transaction?primary_user=9206255525";
   const [res, setRes] = useState([]); 
 
-useInterval(() => {
-    axios.get(baseURL).then(response => {
-            setRes([...response.data.data])
-            console.log('History data',response.data.data);
-        })
-  }, 1000 * 10);
+  React.useEffect(() => {
+    axios.get(baseURL).then((response)=>{
+        setRes([...response.data.data])
+        console.log(response.data.data);
+    })
+  }, []);
 
   return (
     <div className="History-list">
-      {res && <ul className="list-group header list-group-horizontal">
+      {res && <ul className="list-group list-group-horizontal">
         <li className="list-group-item">User</li>
         <li className="list-group-item">Status</li>
-        <li className="list-group-item">UPI_Id</li>
+        <li className="list-group-item">UPI Id</li>
         <li className="list-group-item">Amount</li>
         <li className="list-group-item">Time</li>
       </ul>

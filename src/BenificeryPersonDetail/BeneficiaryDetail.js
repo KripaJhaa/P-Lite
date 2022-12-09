@@ -4,12 +4,12 @@ import UserItem from '../User-Item/UserItem';
 import { PersonFill } from 'react-bootstrap-icons';
 import './style.scss';
 import axios from "axios";
-import DisplayQRCode from './DisplayQRCode';
+import { Link } from 'react-router-dom';
+import {DisplayQRCode} from './DisplayQRCode';
 
 
 
 export function BeneficiaryDetail() {
-    let shouldDisplayQR = false
     const [status, setStatus] = useState('NOT_APPROVED')
     const [names, setNames] = useState([]);
     const { register, handleSubmit, reset } = useForm();
@@ -25,7 +25,6 @@ export function BeneficiaryDetail() {
 
         axios.post(baseURL, body).then((response) => {
             console.log(response.data);
-            shouldDisplayQR = true
         });
         reset();
     }
@@ -37,12 +36,19 @@ export function BeneficiaryDetail() {
         })
     }, []);
 
+    const isClicked = ()=>{
+        axios.get(baseURL).then((response) => {
+            console.log(response.data.data);
+            setNames([...response.data.data])
+        })
+    }
+
 
     return (
         <div className='History'>
             <div className='AddBenificiaryForm'>
                 <div>
-                    <div className='label'>Add Beneficiary</div>
+                    <div className='label'>UPI LITE Add Beneficiary</div>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="mb-3">
                             <input className="form-control" placeholder='Phone number' {...register("phone_number")} />
@@ -80,15 +86,14 @@ export function BeneficiaryDetail() {
                                 {
                                     names.map((item, index) => {
                                         return <tr>
-                                            <th scope="row">
-                                                <DisplayQRCode shouldDisplayQR setStatus={item} phone_number={item.phone_number}/>
-                                            <div className='image_cicle'>
-                                            </div></th>
-                                            <td>{item.phone_number}</td>
+                                            <td scope="row" onClick={isClicked}>
+                                                <DisplayQRCode phone_number={item.phone_number}/>
+                                            </td>
+                                            <td><Link to={`/child?id=${item.phone_number}`}>{item.phone_number}</Link></td>
                                             <td>{item.regular_limit}</td>
                                             <td>{item.max_limit}</td>
                                             <td>{item.description}</td>
-                                            <td>{item.status}</td>
+                                            <td>{item.verification_status ? item.verification_status : "IN_PROGRESS" }</td>
                                             <td><div style={{ marginRight: '1rem' }}>
                                                 <div className="form-check form-switch form-check-reverse active-switch">
                                                     {item.is_active &&
@@ -106,55 +111,6 @@ export function BeneficiaryDetail() {
                         }
                     </tbody>
                 </table></div>
-            {/* <div className="User-List sticky-top">
-                {names && <div className"row">
-                    <div className="col-2">
-                        <div className='Name'>
-                            <label>Profile</label>
-                        </div>
-                    </div>
-                    <div className"col-2">
-                        <div className='Txn-Limit'>
-                            <label>PhoneNo</label>
-                        </div>
-                    </div>
-
-                    <div className"col-2">
-                        <div className='Per-Txn-Limit'>
-                            <label>Txn-per-limit</label>
-                        </div>
-                    </div>
-                    <div className"col-2">
-                        <div className='Name'>
-                            <label>Total-Limit</label>
-                        </div>
-                    </div>
-                    <div className"col-2">
-                        <div className='Txn-Limit'>
-                            <label>Beneficiary Name</label>
-                        </div>
-                    </div>
-                    <div className"col-2">
-                        <div className='Txn-Limit'>
-                            <label>Approval Status</label>
-                        </div>
-                    </div>
-
-                    <div className"form-check form-switch form-check-reverse active-switch">
-                        <label className"form-check-label" for="flexSwitchCheckReverse">Active</label>
-                    </div>
-
-                </div>
-                }
-                <div className='added-user-list'>
-                    {
-                        names && <ul className="price">
-                            {
-                                names.map((item, index) => <UserItem id={index} UserItem={item} />)
-                            } </ul>
-                    }
-                </div>
-            </div> */}
         </div>
     );
 

@@ -8,14 +8,15 @@ import {toast} from "react-toastify"
 
 export function QRCodePayemnt(props) {
     const [amount, setAmount] = useState(0)
+    const {id} = props
     const baseUrl = "http://10.57.15.202:9001/transaction"
     const { register, handleSubmit, reset } = useForm();
 
     const onSubmit = (item) => {
         const body = {
-            "user_id": "9206255529",
+            "user_id": id,
             "merchant_upi_id": "9206255221@upi",
-            "transaction_amount": amount
+            "transaction_amount": parseInt(amount)
         }
 
         axios.post(baseUrl, body).then((response) => {

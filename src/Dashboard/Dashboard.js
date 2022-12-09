@@ -35,8 +35,10 @@ export default class Dashboard extends Component {
 function Nav() {
 
   return (<nav className='nav-bar'>
-    <div className='left'> <CashStack /> <span> PhonePe</span></div>
-    <div><ShieldFill size={"30px"}/> <span> Pay </span></div>
+    <div className='left'> <CashStack /> <span>  PhonePe</span></div>
+    <div style={{"font-weight": "800",
+            "color": "blueviolet",
+            "font-size": "22px"}}><ShieldFill size={"30px"}/> <span> Pay </span></div>
     <div><Bell size={"20px"}/></div>
   </nav>)
 }

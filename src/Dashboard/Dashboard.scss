@@ -55,5 +55,11 @@
     .left {
         display: flex;
         align-items: center;
+
+        > span {
+            font-weight: 800;
+            color: blueviolet;
+            font-size: 22px;
+        }
     }
 }

@@ -7,7 +7,11 @@
 
 
     .AddBenificiaryForm {
-
+            .label{
+                font-weight: 800;
+                color: blueviolet;
+                font-size: 22px;
+            }
         width: 100%;
         display: flex;
         align-items: center;

@@ -1,10 +1,16 @@
 import React, { Component } from 'react'
+import { useLocation } from 'react-router-dom'
+
 import ChildDetails from './ChildDetails'
 import RecentTx from './RecentTx'
 import { QRCodePayemnt } from './QRCodePayment'
 import SpendAnalysis from './SpendAnalysis'
 import './Child.scss';
 import { ToastContainer } from "react-toastify"
+
+
+
+
 export default class Child extends Component {
     constructor(props) {
         super(props)
@@ -13,6 +19,10 @@ export default class Child extends Component {
         console.log(this.props)
 
 
+        const location = window.document.location;
+        const query = new URLSearchParams(location.search);
+        const idParam = query.get('id');
+        
         const childData = {
             "userInfo": {
                 userName: "Hunter biden",
@@ -70,7 +80,7 @@ export default class Child extends Component {
             </div>
             <hr />
             <div className="transaction_details">
-                <QRCodePayemnt notify={this.props.notify}/>
+                <QRCodePayemnt id={idParam} notify={this.props.notify}/>
                 <SpendAnalysis />
             </div>
         </>
